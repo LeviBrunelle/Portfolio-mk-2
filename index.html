@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            position: relative;
+            text-align: center;
+            background-color: #000;
+            color: #fff;
+            padding: 20px 20px 40px;
+        }
+        header img {
+            max-width: 75px;
+            height: auto;
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        header h1 {
+            margin-top: 100px;
+        }
+        header .contact-info {
+            margin-top: 10px;
+            font-size: 14px;
+            text-align: center;
+        }
+        header .contact-info a {
+            color: #007acc;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        header .contact-info a:hover {
+            text-decoration: underline;
+        }
+        nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #fff;
+        }
+        nav a {
+            color: #000;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        section {
+            display: none;
+        }
+        section.active {
+            display: block;
+        }
+        .about-image {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .project {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 20px 0;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .project .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .project img {
+            width: 100%;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .project .image-gallery {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+        }
+        .project .image-gallery img {
+            width: 32%;
+            border-radius: 5px;
+            flex-shrink: 0;
+        }
+        .project .details {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .project .details div {
+            flex: 1;
+            margin: 0 10px;
+        }
+        .project .details div h4 {
+            margin-bottom: 5px;
+            color: #555;
+        }
+        .features {
+            margin-top: 20px;
+            padding-top: 10px;
+            border-top: 1px solid #ddd;
+        }
+        .features h4 {
+            margin-bottom: 10px;
+        }
+        .features ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background: #333;
+            color: #fff;
+            margin-top: 20px;
+        }
+        .resume img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .resume a {
+            display: block;
+            text-align: center;
+            margin: 10px auto;
+            padding: 10px 20px;
+            background-color: #007acc;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            width: 200px;
+        }
+        .resume a:hover {
+            background-color: #005f99;
+        }
+    </style>
+    <script>
+        function showSection(id) {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => section.classList.remove('active'));
+            const targetSection = document.getElementById(id);
+            if (targetSection) {
+                targetSection.classList.add('active');
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            showSection('projects'); // Open the projects section by default
+        });
+    </script>
+</head>
+<body>
+ <header>
+    <img src="Logo sketch v2.png" alt="Logo">
+    <h1>Levi Brunelle</h1>
+    <p>Showcasing My Engineering and Design Projects</p>
+    <div class="contact-info">
+        <a href="mailto:lbrunell@uwaterloo.ca">lbrunell@uwaterloo.ca</a> |
+        <a href="https://linkedin.com/in/lbrunell" target="_blank">linkedin.com/in/lbrunell</a> |
+        <a href="tel:+14313354252">(431) 335-4252</a> |
+        <a href="https://instagram.com/archangelironworks" target="_blank">instagram.com/archangelironworks</a>
+    </div>
+ </header>
+
+    <nav>
+        <a href="#about" onclick="showSection('about'); event.preventDefault();">About</a>
+        <a href="#projects" onclick="showSection('projects'); event.preventDefault();">Projects</a>
+        <a href="#resume" onclick="showSection('resume'); event.preventDefault();">Resume</a>
+    </nav>
+
+    <div class="container">
+        <section id="about">
+            <h2>About Me</h2>
+            <p>Nanotech Engineering student at the University of Waterloo with experience in a wide range of projects from surface chemistry to machining and blacksmithing.</p>
+           
+            <h3>Academic Experience</h3>
+            <p>I currently attend the University of Waterloo, where I major in Nanotechnology Engineering and am working towards a minor in combinatorics and optimization, as well as an option in quantum engineering. Thus far, my interests at school lie in materials science, quantum physics, and semiconductor fabrication. Being based out of the Quantum Nano Center means I have had the chance to use cutting-edge semiconductor fabrication and materials characterization equipment, putting our theoretical knowledge of deposition, etching, lithography, polymer science, and metallurgy to the test. In the coming terms, I will be diving deep into quantum physics and computing courses and hope to fuel a lifelong passion with the knowledge gained there.</p>
+
+            <h3>Professional Experience</h3>
+            <p>During my co-ops up until this point, I have worked in both industrial chemical production and cutting-edge biotech R&D. My time as a process engineer at a chemical plant taught me the basics of optimizing industrial processes, leading to a successful project to improve the water purification system, but ultimately I didn’t want to continue down that career path.</p>
+
+            <p>The year I spent afterward at Terray Therapeutics was one of the best of my life. I was able to gain hands-on experience with magnetic nanoparticles, lab-on-chip drug discovery, fluorescent microscopy, DNA click reactions, and surface chemistry, to name a few. The highlight was a project involving rotational AC fields for magnetic nanoparticle manipulation, where I built a 3-axis magnetic stage for the lab microscope, enabling us to manipulate the substrate nanoparticles under a live video feed in order to disaggregate them at will and load them into microarrays. Looking forward, I am open to continuing down that path or trying something completely new, such as pursuing my mechanical or semiconductor interests.</p>
+
+            <h3>Personal Experience</h3>
+            <p>I have always had an aptitude for hands-on work, which is part of the reason I chose engineering. Outside of school, however, I mostly busy myself with metalwork and the small business I run on the side: Archangel Ironworks. Blacksmithing and bladesmithing are my main passions, though I greatly enjoy machining, welding, and building heavy machinery. My pattern-welded (Damascus) steel and silver rings have been quite popular since I started making them, and lately, I have been getting really into making kitchen knives. This hobby has been a really wonderful journey, pushing my skills as a craftsman and introducing me to some pretty amazing people like Tony Swatton, who makes the weapons and armor for most Hollywood movies! The next couple of months will be focused mainly on shop improvements, building new equipment and tooling, so that I can increase my capabilities. You can see my progress on my Instagram, linked above.</p>
+        </section>
+
+        <section id="projects">
+            <h2>Projects</h2>
+
+            <div id="project1" class="project">
+                <div class="project-header">
+                    <h3>Magnetic Microscope Stage - Terray Therapeutics (no pictures allowed)</h3>
+                </div>
+                
+                <div class="details">
+                    <div>
+                        <h4>What?</h4>
+                        <ul>
+                            <li><strong>Designed and built</strong> a 3-axis AC electromagnetic stage that mounts to the existing lab microscopes for <strong>manipulation of magnetic drug-binding substrate nanoparticles</strong> under real-time observation.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>How?</h4>
+                        <ul>
+                            <li>Made a full CAD design of all components in <strong>Fusion360</strong>.</li>
+                            <li><strong>Machined and heat treated</strong> electromagnet cores and yoke from vim-var core iron.</li>
+                            <li>Built a <strong>jig for optimizing coil winding</strong> to be consistent and identical.</li>
+                            <li><strong>3D printed frame</strong> and flow cell from bio-compatible polymers to ensure no interaction with lab samples.</li>
+                            <li>Used function generators and amplifiers to provide <strong>programmable waveforms</strong> to the coils.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>Results</h4>
+                        <ul>
+                            <li>Nanoparticles were successfully able to be disaggregated and loaded into microarrays using <strong>3-axis rotational AC fields</strong>.</li>
+                            <li>Resulted in <strong>90% loading efficiency</strong> in <strong>10% of the time</strong>, with only one touchpoint.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="features">
+                    <h4>Features/Specs</h4>
+                    <ul>
+                        <li>Completely programmable field shape, strength and frequency in 3 axes.</li>
+                        <li>Can load custom flow cells for any microarray shape.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="project2" class="project">
+                <div class="project-header">
+                    <h3>Surface Grinding Attachment</h3>
+                </div>
+                <div class="image-gallery">
+                    <img src="SGA_fusion.png" alt="Surface Grinding Attachment 1">
+                    <img src="SGA_fusion_exploded.png" alt="Surface Grinding Attachment 2">
+                    <img src="SGA_proto.png" alt="Surface Grinding Attachment 3">
+                </div>
+                <div class="details">
+                    <div>
+                        <h4>What?</h4>
+                        <ul>
+                            <li>Designed and machined an attachment for a 2x72 belt grinder to convert it into a surface grinder with magnetic chuck</li>
+                            <li>Includes a sine bar to grind precise tapers and symmetrical double-sided tapers</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>How?</h4>
+                        <ul>
+                            <li>Made a complete CAD design of all machined components in <strong>Fusion360</strong></li>
+                            <li>Used the <strong>manual mill and lathe</strong> to machine components in 6061 aluminum</li>
+                            <li>Purchased hardware and switchable magnets from McMaster Carr</li>
+                            <li>Custom urethane rubber coating on contact wheel is 95 durometer for precise flatness and good surface finish</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>Results</h4>
+                        <ul>
+                            <li>The attachment produces parts with <strong>less than 0.001"</strong> variance in thickness</li>
+                            <li>This surface grinder, in combination with ceramic abrasives, is capable of taking much heavier cuts than a traditional surface grinder, up to <strong>0.020" DOC with no chatter, high speed and high accuracy</strong></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="features">
+                    <h4>Features/Specs</h4>
+                    <ul>
+                        <li>Switchable 15" magnetic chuck with room for 7 magnets, each with 95 lbs pull. <strong>Larger and stronger than commercially available attachments</strong>.</li>
+                        <li>Strong and precise <strong>dovetail feed mechanism</strong> with UHMWPE gib and lock screws allows for precise depth control and the ability to remove slop as wear occurs.</li>
+                        <li>Dial indicator allows for precise measurement of material removed.</li>
+                        <li>Linear guide bearings can be adjusted laterally to remove slop from wear.</li>
+                        <li>Machined from thick aluminum stock, the attachment is rigid and relatively light.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="project3" class="project">
+                <div class="project-header">
+                    <h3>2x72 Belt Grinder (In Progress)</h3>
+                </div>
+                <div class="image-gallery">
+                    <img src="2x72_1.png" alt="2x72 Belt Grinder 1">
+                    <img src="2x72_2.png" alt="2x72 Belt Grinder 2">
+                </div>
+                <div class="details">
+                    <div>
+                        <h4>What?</h4>
+                        <ul>
+                            <li>Designed and (building) a new and improved 2x72 belt grinder for both specialized use in bladesmithing and general shop use</li>
+                            <li>Capable of being outfitted with many different types of attachments, such as wheels, platens, surface grinder, buffer, etc.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>How?</h4>
+                        <ul>
+                            <li>Made a full CAD design in <strong>Fusion360</strong>, with slot-and-tab registration and fasteners on all components to reduce possible warping from welding</li>
+                            <li><strong>Waterjet all plate components</strong> in 1/4" and 3/8" mild steel plate</li>
+                            <li>Machined tracking mechanism components and wheels on the <strong>manual mill and lathe</strong></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>Results</h4>
+                        <ul>
+                            <li>Construction will finish by the end of January</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="features">
+                    <h4>Features/Specs</h4>
+                    <ul>
+                        <li>Heavy plate design ensures a rigid heavy machine with no vibration.</li>
+                        <li>3HP 3ph motor with a VFD allows for speed control on different materials, and enough power to never stall the belt.</li>
+                        <li>Double axis tracking mechanism allows for precise control of belt tracking across attachments.</li>
+                        <li>Compatible with my own attachments (and some that I will build) as well as standard commercial attachments.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="project4" class="project">
+                <div class="project-header">
+                    <h3>Hydraulic Forging Press</h3>
+                </div>
+                <div class="image-gallery">
+                    <img src="Press_full.png" alt="Hydraulic Forging Press 1">
+                    <img src="Press_valve.png" alt="Hydraulic Forging Press 2">
+                </div>
+                <div class="details">
+                    <div>
+                        <h4>What?</h4>
+                        <ul>
+                            <li>Designed and built a 30-ton hydraulic forging press to increase the capability of my blacksmithing shop</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>How?</h4>
+                        <ul>
+                            <li>Made a full paper design and <strong>calculated necessary specs for all hydraulic components</strong></li>
+                            <li>Fabricated frame and cart using <strong>SMAW (stick)</strong> and <strong>GMAW (MIG)</strong> welding and general metal shop tools</li>
+                            <li>Purchased all hydraulic components from reputable American suppliers, including a <strong>2-stage pump</strong> to allow for both fast cycle speed and high pressure</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>Results</h4>
+                        <ul>
+                            <li>Press outputs roughly 30 tons of force at 3000 psi</li>
+                            <li><strong>Decreases time to forge tooling and Damascus steel by ~2000%</strong></li>
+                            <li>Allows for forging of heavy components/stock, too large to be done by hand (Easily forges 5" round 4140)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="features">
+                    <h4>Features/Specs</h4>
+                    <ul>
+                        <li>Heavy plate ad beam design ensures a rigid, heavy, and safe machine</li>
+                        <li>5HP motor with a 2 stage pump allows for fast carriage speed and strong compression</li>
+                        <li>Quick change die plates allows for easy replacement during forging for performing multiple different operations</li>
+                    </ul>
+                </div>
+            </div>
+
+        </section>
+
+        <section id="resume">
+            <h2>Resume</h2>
+            <div class="resume">
+                <embed src="Levi Brunelle Resume General Winter 2025.pdf" type="application/pdf" width="100%" height="500px">
+                <a href="Levi Brunelle Resume General Winter 2025.pdf" download>Download Resume</a>
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2025 Levi Brunelle.
